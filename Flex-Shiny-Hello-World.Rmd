@@ -1,0 +1,43 @@
+---
+title: "Flex Shiny Hello World"
+runtime: shiny
+output: 
+  flexdashboard::flex_dashboard:
+    vertical_layout: fill
+    orientation: rows
+---
+
+Sidebar {.sidebar}
+--------------------------
+
+```{r}
+ sliderInput("bins",
+             "Number of bins:",
+             min = 1,
+             max = 50,
+             value = 30)
+```
+
+Row 
+---------------------
+
+### Histogram 1
+
+```{r}
+bins <- reactive(input$bins)
+```
+
+
+```{r}
+
+renderPlot({
+      # generate bins based on input$bins
+      x    <- faithful[, 2] 
+      bins <- seq(min(x), max(x), length.out = bins() + 1)
+      
+      # draw the histogram with the specified number of bins
+      hist(x, breaks = bins, col = 'darkgray', border = 'white')
+   })
+
+```
+

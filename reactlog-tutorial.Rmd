@@ -1,0 +1,15 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+command + F3 to open the log
+search: reactive, summary, by input name like 'stock1'
+double click the node and it will focus on it
+label your eventReactives, then will be easier to find in the reactlog
+input$go, label = "label"
+session clien data with plots, renderPlot will handle
+isolate calls are dotted
+
+
+
